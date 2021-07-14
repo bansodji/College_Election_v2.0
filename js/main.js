@@ -33,3 +33,18 @@ $(document).ready(function(){
         $("#tgl-mnu").hide();
     });
 });
+
+// Flip Card
+$(document).ready(function(){
+    $("#card1").flip({
+        trigger: 'hover'
+    });
+    $("#card2").flip({
+        trigger: 'hover'
+    });
+    $("#card3").flip({
+        trigger: 'hover'
+    });
+});
+
+//AOS
