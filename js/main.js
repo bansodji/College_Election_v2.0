@@ -5,10 +5,10 @@ $(window).on("scroll", function () {
         $(".nav-link").addClass("f-black");
         $(".navbar-brand").addClass("f-black");
         $(".navbar-brand").removeClass("nav-margin");
-        $(".navbar-brand").css({"transition": "300ms"})
+        $(".navbar-brand").css({ "transition": "300ms" })
         $(".bi-list").addClass("f-black");
     }
-    else{
+    else {
         $("nav").removeClass("is-sticky");
         $(".nav-link").removeClass("f-black");
         $(".navbar-brand").removeClass("f-black");
@@ -17,25 +17,26 @@ $(window).on("scroll", function () {
     }
 });
 
+
 //Toggle Navbar
-$(document).ready(function(){
+$(document).ready(function () {
     $("#tgl-mnu").hide();
 
-    $(".bi-list").click(function(){
+    $(".bi-list").click(function () {
         $("#tgl-mnu").show();
     });
 
-    $(".bi-x-lg").click(function(){
+    $(".bi-x-lg").click(function () {
         $("#tgl-mnu").hide();
     });
 
-    $(".nav-link").click(function(){
+    $(".nav-link").click(function () {
         $("#tgl-mnu").hide();
     });
 });
 
 // Flip Card
-$(document).ready(function(){
+$(document).ready(function () {
     $("#card1").flip({
         trigger: 'hover'
     });
@@ -47,4 +48,5 @@ $(document).ready(function(){
     });
 });
 
-//AOS
+//Preloader
+
