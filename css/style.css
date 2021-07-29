@@ -194,6 +194,8 @@ a {
           align-items: center;
 }
 
+.width-100{width: 100%;}
+
 .shadow-box {
   -webkit-box-shadow: 0 0 6px 3px rgba(97, 75, 75, 0.1);
           box-shadow: 0 0 6px 3px rgba(97, 75, 75, 0.1);
@@ -261,7 +263,7 @@ body {
   width: 100%;
   height: 100vh;
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.6)), to(rgba(0, 0, 0, 0.6))), url("/img/bg.jpeg");
-  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/img/bg.jpeg");
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../img/bg.jpeg");
   background-size: cover;
   background-position: center;
   display: -webkit-box;
@@ -284,14 +286,14 @@ body {
 }
 
 .about-us .row .about-left {
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.8)), to(rgba(255, 255, 255, 0.8))), url("/img/about/about_left.webp");
-  background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url("/img/about/about_left.webp");
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.8)), to(rgba(255, 255, 255, 0.8))), url("../img/about/about_left.webp");
+  background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url("../img/about/about_left.webp");
   background-size: cover;
 }
 
 .about-us .row .about-right {
-  background: -webkit-gradient(linear, left top, left bottom, from(#00477eec), to(#00477eec)), url("/img/about/about-right.webp");
-  background: linear-gradient(#00477eec, #00477eec), url("/img/about/about-right.webp");
+  background: -webkit-gradient(linear, left top, left bottom, from(#00477eec), to(#00477eec)), url("../img/about/about-right.webp");
+  background: linear-gradient(#00477eec, #00477eec), url("../img/about/about-right.webp");
   background-position: center;
   background-size: cover;
 }
@@ -329,8 +331,8 @@ body {
 
 .candidates {
   padding: 8rem 0;
-  background: -webkit-gradient(linear, left top, right top, color-stop(50%, rgba(0, 72, 128, 0.925)), to(rgba(255, 255, 255, 0.842))), url("/img/election_candidates/bg.webp");
-  background: linear-gradient(to right, rgba(0, 72, 128, 0.925) 50%, rgba(255, 255, 255, 0.842)), url("/img/election_candidates/bg.webp");
+  background: -webkit-gradient(linear, left top, right top, color-stop(50%, rgba(0, 72, 128, 0.925)), to(rgba(255, 255, 255, 0.842))), url("../img/election_candidates/bg.webp");
+  background: linear-gradient(to right, rgba(0, 72, 128, 0.925) 50%, rgba(255, 255, 255, 0.842)), url("../img/election_candidates/bg.webp");
   background-size: cover;
   background-position: center;
   position: relative;

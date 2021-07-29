@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -7,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!--jQuery-->
-    <script src="/js/jquery-3.6.0.min.js"></script>
+    <script src="js/jquery-3.6.0.min.js"></script>
 
     <!--Google Font-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,18 +33,19 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     <!--Local-->
-    <link rel="stylesheet" href="/css/style.css">
-    <script src="/js/main.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/main.js"></script>
 
     <title>College Election</title>
 </head>
 
 <body>
 
+
     <div class="container mt-4 d-flex justify-content-between">
         <div><h4 class="fw-bold">College Election</h4></div>
         <div>
-            <span>Don't have an Account? <a href="/signup.html" class="f-color-2 font-7"> Sign Up Here</a> </span>
+            <span>Don't have an Account? <a href="signup.php" class="f-color-2 font-7"> Sign Up Here</a> </span>
         </div>
     </div>
 
@@ -51,25 +56,25 @@
                     <div>
                         <h1 class="font-9 f-color-2">Login</h1>
                     </div>
-                    <form action="">
+                    <form action="<?php $_SERVER['PHP_SELF']; ?>" method="POST">
                         <div class="row mt-5 gx-5">
                             <div class="col-lg-12 d-flex flex-column mb-4">
                                 <span class="small-text mb-2 text-black-50 mx-2">COLLEGE ID</span>
-                                <input type="text" class="f-form-control-2">
+                                <input type="text" name="collegeid" class="f-form-control-2">
                             </div>
                             <div class="col-lg-12 d-flex flex-column mb-4">
                                 <span class="small-text mb-2 text-black-50 mx-2">PASSWORD</span>
-                                <input type="password" class="f-form-control-2">
+                                <input type="password" name="password" class="f-form-control-2">
                             </div>
                             <div class="col-lg-12 d-flex justify-content-center mb-4">
-                                <a href="#"><button class="f-btn-3">LOGIN</button></a>
+                                <input type="submit" name="submit" class="f-btn-3">
                             </div>
                         </div>
                     </form>
                 </div>
             </div>
             <div class="col-lg-6">
-                <img src="/img/login.svg" class="img-fluid" alt="">
+                <img src="img/login.svg" class="img-fluid" alt="">
             </div>
         </div>
     </div>

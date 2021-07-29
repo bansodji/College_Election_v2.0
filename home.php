@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!--jQuery-->
-    <script src="/js/jquery-3.6.0.min.js"></script>
+    <script src="js/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
 
     <!--AOS-->
@@ -16,25 +16,23 @@
     <!--Google Font-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Yesteryear&display=swap" rel="stylesheet">
 
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
 
     <!--icomoon-->
-    <link rel="stylesheet" href="/font/icomoon/style.css">
+    <link rel="stylesheet" href="font/icomoon/style.css">
 
     <!--Bootstrap icon-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     <!--Local-->
-    <link rel="stylesheet" href="/css/style.css">
-    <script src="/js/main.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/main.js"></script>
 
     <title>College Election</title>
 </head>
@@ -62,7 +60,7 @@
                 <div class="mobile-menu">
                     <ul class="navbar-nav mx-4 mt-4">
                         <li class="nav-item">
-                            <a class="nav-link font-5 text-dark" href="#">Home</a>
+                            <a class="nav-link font-5 text-dark" href="#hero">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link font-5 text-dark" href="#about">About</a>
@@ -76,16 +74,10 @@
                         <li class="nav-item">
                             <a class="nav-link font-5 text-dark" href="#contact">Contact</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link font-5 text-dark" href="logout.php">Logout</a>
+                        </li>
                     </ul>
-
-                    <div class="d-flex justify-content-center my-4">
-                        <li class="nav-item d-flex align-items-center mx-2">
-                            <a href="/login.html"><button class="f-btn-sm">Login</button></a>
-                        </li>
-                        <li class="nav-item d-flex align-items-center mx-2">
-                            <a href="/signup.html"><button class="f-btn-sm">Sign Up</button></a>
-                        </li>
-                    </div>
 
                 </div>
             </div>
@@ -100,7 +92,7 @@
             <div class="menu">
                 <ul class="navbar-nav">
                     <li class="nav-item mx-3">
-                        <a class="nav-link font-5 fff" href="#">Home</a>
+                        <a class="nav-link font-5 fff" href="#hero">Home</a>
                     </li>
                     <li class="nav-item mx-3">
                         <a class="nav-link font-5 fff" href="#about">About</a>
@@ -114,29 +106,34 @@
                     <li class="nav-item mx-3">
                         <a class="nav-link font-5 fff" href="#contact">Contact</a>
                     </li>
-                    <li class="nav-item d-flex align-items-center mx-3">
-                        <a href="/login.html"><button class="f-btn-sm">Login</button></a>
-                    </li>
-                    <li class="nav-item d-flex align-items-center mx-3">
-                        <a href="/signup.html"><button class="f-btn-sm">Sign Up</button></a>
+                    <li class="nav-item mx-3">
+                        <div id="drop-down" class="btn-group">
+                            <a class="bi bi-person-circle fs-3 fff nav-link" style="text-decoration: none;" data-bs-toggle="dropdown" aria-expanded="false"></a>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li><button class="dropdown-item" type="button">User</button></li>
+                                <li><button class="dropdown-item" type="button">Link</button></li>
+                                <li><a href="logout.php" class="dropdown-item" type="button">Logout</a></li>
+                            </ul>
+                        </div>
                     </li>
                 </ul>
             </div>
+
         </div>
     </nav>
 
     <!--========Hero Section========-->
     <section>
-        <div class="hero">
+        <div id="hero" class="hero">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8"></div>
                     <div class="col-lg-3 text-end" data-aos="fade-left">
-                        <h1 class=" fff f-text-family-head">Promote Unity and Acceptance in our College</h1>
+                        <h1 class=" fff f-text-family-head">Welcome User</h1>
                         <p class="text-sm fff">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo commodi
                             aliquid quis neque
                             laborum! Natus, accusamus dolor sunt minimas</p>
-                        <a href="#about"><button class="f-btn-1">ABOUT US</button></a>
+                        <a href="#"><button class="f-btn-1">VOTE NOW</button></a>
                     </div>
                 </div>
             </div>
@@ -189,15 +186,14 @@
 
                     <div class="col-lg-4 about-left">
                         <div class="about-img">
-                            <img src="/img/about/principal.jpg" class="img-fluid f-img-fluid" alt=""
-                                data-aos="fade-right">
+                            <img src="img/about/principal.jpg" class="img-fluid f-img-fluid" alt="" data-aos="fade-right">
                         </div>
                     </div>
 
                     <div class="about-right col-lg-8">
                         <div class="f-padding">
                             <div>
-                                <div data-aos="fade-left">
+                                <div data-aos="fade-up">
                                     <h5 class="fff my-4">ABOUT US</h5>
                                     <h3 class="fff fw-bold my-4">Moveth Great. In. Seed seasons waters from won't moving
                                         forth saw which also Cattle</h3>
@@ -210,7 +206,7 @@
                                         nulla
                                         pariatur. Excepteur sint occaecat</p>
                                 </div>
-                                <div data-aos="fade-up-left">
+                                <div data-aos="fade-up">
                                     <span class="font-size-X f-text-family-head fff my-5">George
                                         Bush</span>
                                 </div>
@@ -286,29 +282,26 @@
                             <div class="row">
 
                                 <!--Card 1-->
-                                <div class="col-lg-12 mb-3" data-aos="fade-left">
+                                <div class="col-lg-12 mb-3" data-aos="fade-up">
                                     <div id="card1" style="position: relative;">
                                         <div class="front" style="z-index: 88;">
                                             <div style="width: 100%; height: 12rem; position: relative;">
                                                 <div class="box">
-                                                    <img src="/img/policy/card1.webp" class="f-img-fluid" alt="">
+                                                    <img src="img/policy/card1.webp" class="f-img-fluid" alt="">
                                                 </div>
                                                 <div class="box-overlay" style="background: #00477ecc;">
-                                                    <span
-                                                        style="position:absolute; top: 80%; left: 20%; transform: translate(-20%,-80%); font-weight: 600;">Join
+                                                    <span style="position:absolute; top: 80%; left: 20%; transform: translate(-20%,-80%); font-weight: 600;">Join
                                                         Our Political Campain</span>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="back"
-                                            style="position: absolute; width: 100%; top: 0%; z-index: 80;">
+                                        <div class="back" style="position: absolute; width: 100%; top: 0%; z-index: 80;">
                                             <div style="width: 100%; height: 12rem; position: relative;">
                                                 <div class="box">
-                                                    <img src="/img/policy/card1.webp" class="f-img-fluid" alt="">
+                                                    <img src="img/policy/card1.webp" class="f-img-fluid" alt="">
                                                 </div>
                                                 <div class="box-overlay" style="background: #00477ecc;">
-                                                    <div
-                                                        style="position:absolute; top: 50%; left: 30%; transform: translate(-30%,-50%); font-weight: 600;">
+                                                    <div style="position:absolute; top: 50%; left: 30%; transform: translate(-30%,-50%); font-weight: 600;">
                                                         <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit
                                                         </span>
                                                         <p class="fff my-4"><a>Learn More</a></p>
@@ -320,29 +313,26 @@
                                 </div>
 
                                 <!--Card 2-->
-                                <div class="col-lg-12 mb-3" data-aos="fade-left">
+                                <div class="col-lg-12 mb-3" data-aos="fade-up">
                                     <div id="card2" style="position: relative;">
                                         <div class="front" style="z-index: 88;">
                                             <div style="width: 100%; height: 12rem; position: relative;">
                                                 <div class="box">
-                                                    <img src="/img/policy/card2.webp" class="f-img-fluid" alt="">
+                                                    <img src="img/policy/card2.webp" class="f-img-fluid" alt="">
                                                 </div>
                                                 <div class="box-overlay" style="background: #da2439b4;">
-                                                    <span
-                                                        style="position:absolute; top: 80%; left: 20%; transform: translate(-20%,-80%); font-weight: 600;">Join
+                                                    <span style="position:absolute; top: 80%; left: 20%; transform: translate(-20%,-80%); font-weight: 600;">Join
                                                         Our News Letter</span>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="back"
-                                            style="position: absolute; width: 100%; top: 0%; z-index: 80;">
+                                        <div class="back" style="position: absolute; width: 100%; top: 0%; z-index: 80;">
                                             <div style="width: 100%; height: 12rem; position: relative;">
                                                 <div class="box">
-                                                    <img src="/img/policy/card2.webp" class="f-img-fluid" alt="">
+                                                    <img src="img/policy/card2.webp" class="f-img-fluid" alt="">
                                                 </div>
                                                 <div class="box-overlay" style="background: #da2439b4;">
-                                                    <div
-                                                        style="position:absolute; top: 50%; left: 30%; transform: translate(-30%,-50%); font-weight: 600;">
+                                                    <div style="position:absolute; top: 50%; left: 30%; transform: translate(-30%,-50%); font-weight: 600;">
                                                         <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit
                                                         </span>
                                                         <p class="fff my-4"><a>Learn More</a></p>
@@ -354,29 +344,26 @@
                                 </div>
 
                                 <!--Card 3-->
-                                <div class="col-lg-12 mb-3" data-aos="fade-left">
+                                <div class="col-lg-12 mb-3" data-aos="fade-up">
                                     <div id="card3" style="position: relative;">
                                         <div class="front" style="z-index: 88;">
                                             <div style="width: 100%; height: 12rem; position: relative;">
                                                 <div class="box">
-                                                    <img src="/img/policy/card3.webp" class="f-img-fluid" alt="">
+                                                    <img src="img/policy/card3.webp" class="f-img-fluid" alt="">
                                                 </div>
                                                 <div class="box-overlay" style="background: #00477ecc;">
-                                                    <span
-                                                        style="position:absolute; top: 80%; left: 20%; transform: translate(-20%,-80%); font-weight: 600;">Join
+                                                    <span style="position:absolute; top: 80%; left: 20%; transform: translate(-20%,-80%); font-weight: 600;">Join
                                                         As Volunteer</span>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="back"
-                                            style="position: absolute; width: 100%; top: 0%; z-index: 80;">
+                                        <div class="back" style="position: absolute; width: 100%; top: 0%; z-index: 80;">
                                             <div style="width: 100%; height: 12rem; position: relative;">
                                                 <div class="box">
-                                                    <img src="/img/policy/card3.webp" class="f-img-fluid" alt="">
+                                                    <img src="img/policy/card3.webp" class="f-img-fluid" alt="">
                                                 </div>
                                                 <div class="box-overlay" style="background: #00477ecc;">
-                                                    <div
-                                                        style="position:absolute; top: 50%; left: 30%; transform: translate(-30%,-50%); font-weight: 600;">
+                                                    <div style="position:absolute; top: 50%; left: 30%; transform: translate(-30%,-50%); font-weight: 600;">
                                                         <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit
                                                         </span>
                                                         <p class="fff my-4"><a>Learn More</a></p>
@@ -413,19 +400,19 @@
                 <div class="row mt-5">
                     <div class="col-lg-4 mb-4" data-aos="fade-up">
                         <div>
-                            <img src="/img/election_candidates/candidate1.jpg" class="f-img-fluid" alt="">
+                            <img src="img/election_candidates/candidate1.jpg" class="f-img-fluid" alt="">
                             <h4 class="fff text-center mt-4">Austin Philip</h4>
                         </div>
                     </div>
                     <div class="col-lg-4 mb-4" data-aos="fade-up">
                         <div>
-                            <img src="/img/election_candidates/candidate2.jpg" class="f-img-fluid" alt="">
+                            <img src="img/election_candidates/candidate2.jpg" class="f-img-fluid" alt="">
                             <h4 class="fff text-center mt-4">Rachel Weiz</h4>
                         </div>
                     </div>
                     <div class="col-lg-4" data-aos="fade-up">
                         <div>
-                            <img src="/img/election_candidates/candidate3.jpg" class="f-img-fluid img-fluid" alt="">
+                            <img src="img/election_candidates/candidate3.jpg" class="f-img-fluid img-fluid" alt="">
                             <h4 class="fff text-center mt-4">Robert Patinson</h4>
                         </div>
                     </div>
@@ -449,7 +436,7 @@
                     <div class="row mt-5">
                         <div class="col-lg-3 col-md-6 col-sm-6" data-aos="fade-up">
                             <div class="">
-                                <img src="/img/news/news1.webp" class="card-img-top f-img-fluid" alt="...">
+                                <img src="img/news/news1.webp" class="card-img-top f-img-fluid" alt="...">
                                 <div class="card-body my-4">
                                     <span class="f-color my-4">March 15,2021</span>
                                     <a href="#">
@@ -460,7 +447,7 @@
                         </div>
                         <div class="col-lg-3 col-md-6 col-sm-6" data-aos="fade-up">
                             <div class="">
-                                <img src="/img/news/news2.webp" class="card-img-top f-img-fluid" alt="...">
+                                <img src="img/news/news2.webp" class="card-img-top f-img-fluid" alt="...">
                                 <div class="card-body my-4">
                                     <span class="f-color my-4">March 15,2021</span>
                                     <a href="#">
@@ -471,7 +458,7 @@
                         </div>
                         <div class="col-lg-3 col-md-6 col-sm-6" data-aos="fade-up">
                             <div class="">
-                                <img src="/img/news/news3.webp" class="card-img-top f-img-fluid" alt="...">
+                                <img src="img/news/news3.webp" class="card-img-top f-img-fluid" alt="...">
                                 <div class="card-body my-4">
                                     <span class="f-color my-4">March 15,2021</span>
                                     <a href="#">
@@ -482,7 +469,7 @@
                         </div>
                         <div class="col-lg-3 col-md-6 col-sm-6" data-aos="fade-up">
                             <div class="">
-                                <img src="/img/news/news4.webp" class="card-img-top f-img-fluid" alt="...">
+                                <img src="img/news/news4.webp" class="card-img-top f-img-fluid" alt="...">
                                 <div class="card-body my-4">
                                     <span class="f-color my-4">March 15,2021</span>
                                     <a href="#">
@@ -504,7 +491,7 @@
                 <div class="row gx-0">
 
                     <div class="col-lg-6 staff" data-aos="fade">
-                        <img src="/img/donation/meeting.jpg" class="img-fluid f-img-fluid" alt="">
+                        <img src="img/donation/meeting.jpg" class="img-fluid f-img-fluid" alt="">
                     </div>
 
                     <div class="col-lg-3 donation">
@@ -515,13 +502,13 @@
                         </div>
 
                         <div class="mb-4" data-aos="fade-up">
-                            <img src="/img/donation/donation.jpg" class="img-fluid" alt="">
+                            <img src="img/donation/donation.jpg" class="img-fluid" alt="">
                         </div>
                     </div>
 
                     <div class="col-lg-3 volunteer">
                         <div data-aos="fade-down">
-                            <img src="/img/donation/volunteer.webp" class="img-fluid" alt="">
+                            <img src="img/donation/volunteer.webp" class="img-fluid" alt="">
                         </div>
 
                         <div class="d-txt" data-aos="fade-up">
@@ -582,8 +569,7 @@
                                 <input type="text" placeholder="Subject" class="f-form-control">
                             </div>
                             <div class="col-12">
-                                <textarea placeholder="Message" class="f-form-control py-2"
-                                    style="height: 200px;"></textarea>
+                                <textarea placeholder="Message" class="f-form-control py-2" style="height: 200px;"></textarea>
                             </div>
                             <div class="col-12 text-center">
                                 <a href="#"><button class="f-btn-2">Send Message</button></a>
@@ -619,9 +605,7 @@
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
     <!--========AOS========-->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
