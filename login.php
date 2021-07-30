@@ -42,6 +42,39 @@
 <body>
 
 
+    <?php
+
+        include "dbcon.php";
+
+        if(isset($_POST['submit'])){
+            $collegeid = $_POST['collegeid'];
+            $password = $_POST['password'];
+
+            $check_clgid = " select * from `userdata` where `college id` = '$collegeid' ";
+            $query = mysqli_query($con, $check_clgid);
+
+            if(mysqli_num_rows($query)){
+                $db_fetch = mysqli_fetch_assoc($query);    //Fetch Query
+                $db_pass = $db_fetch['password'];       //Fetching password
+
+                $_SESSION['fullname'] = $db_fetch['fullname'];    //fetching Fullname
+
+                $verify_pass = password_verify($password, $db_pass);   //Verifying passoword
+
+                if($verify_pass){
+                    header('location:home.php');
+                }else{
+                    echo "Password is incorrect";
+                }
+            }else{
+                echo "College ID not found";
+            }
+        }
+
+
+    ?>
+
+
     <div class="container mt-4 d-flex justify-content-between">
         <div><h4 class="fw-bold">College Election</h4></div>
         <div>
@@ -60,11 +93,11 @@
                         <div class="row mt-5 gx-5">
                             <div class="col-lg-12 d-flex flex-column mb-4">
                                 <span class="small-text mb-2 text-black-50 mx-2">COLLEGE ID</span>
-                                <input type="text" name="collegeid" class="f-form-control-2">
+                                <input type="text" name="collegeid" class="f-form-control-2" required>
                             </div>
                             <div class="col-lg-12 d-flex flex-column mb-4">
                                 <span class="small-text mb-2 text-black-50 mx-2">PASSWORD</span>
-                                <input type="password" name="password" class="f-form-control-2">
+                                <input type="password" name="password" class="f-form-control-2" required>
                             </div>
                             <div class="col-lg-12 d-flex justify-content-center mb-4">
                                 <input type="submit" name="submit" class="f-btn-3">

@@ -1,3 +1,10 @@
+<?php
+    session_start();
+    if(!$_SESSION['fullname']){
+        header("location:index.php");
+    }
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -110,7 +117,7 @@
                         <div id="drop-down" class="btn-group">
                             <a class="bi bi-person-circle fs-3 fff nav-link" style="text-decoration: none;" data-bs-toggle="dropdown" aria-expanded="false"></a>
                             <ul class="dropdown-menu dropdown-menu-end">
-                                <li><button class="dropdown-item" type="button">User</button></li>
+                                <li><button class="dropdown-item" type="button"><?php echo $_SESSION['fullname'] ?></button></li>
                                 <li><button class="dropdown-item" type="button">Link</button></li>
                                 <li><a href="logout.php" class="dropdown-item" type="button">Logout</a></li>
                             </ul>
@@ -129,11 +136,11 @@
                 <div class="row">
                     <div class="col-lg-8"></div>
                     <div class="col-lg-3 text-end" data-aos="fade-left">
-                        <h1 class=" fff f-text-family-head">Welcome User</h1>
+                        <h1 class=" fff f-text-family-head">Welcome <?php echo $_SESSION['fullname'] ?></h1>
                         <p class="text-sm fff">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo commodi
                             aliquid quis neque
                             laborum! Natus, accusamus dolor sunt minimas</p>
-                        <a href="#"><button class="f-btn-1">VOTE NOW</button></a>
+                        <a href="vote.php"><button class="f-btn-1">VOTE NOW</button></a>
                     </div>
                 </div>
             </div>

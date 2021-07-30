@@ -53,13 +53,13 @@
             $password = $_POST['password'];
             $cpassword = $_POST['cpassword'];
 
-            $pass = password_hash($password, PASSWORD_BCRYPT);
+            $pass = password_hash($password, PASSWORD_BCRYPT);  // Hashing Password
 
             $select_clgid_idlist = " SELECT * FROM `id list` WHERE `college id` = '$collegeid' ";
-            $query = mysqli_query($con, $select_clgid_idlist);
+            $query = mysqli_query($con, $select_clgid_idlist);  //checking if "college id" is present in "id list" database
 
             $select_clgid_userdata = " select * from `userdata` where `college id` = '$collegeid' ";
-            $query2 = mysqli_query($con, $select_clgid_userdata);
+            $query2 = mysqli_query($con, $select_clgid_userdata);   //checking if "college id" is present in "userdata" database
 
             if(mysqli_num_rows($query2) > 0){
                 echo "College Id Already exist";
@@ -68,7 +68,7 @@
                     $id_name = mysqli_fetch_assoc($query)['name'];
                     if($id_name === $fullname){
                         if($password === $cpassword){
-                            $insert_data = " INSERT INTO `userdata`(`college id`, `fullname`, `password`) VALUES ('$collegeid', '$fullname', '$pass') ";
+                            $insert_data = " INSERT INTO `userdata`(`college id`, `fullname`, `password`, `vote`) VALUES ('$collegeid', '$fullname', '$pass', '0') ";
                             $iquery = mysqli_query($con, $insert_data);
 
                             header('location:index.php');
@@ -113,7 +113,7 @@
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6 d-flex flex-column mb-4">
                                 <span class="small-text mb-2 text-black-50 mx-2">LAST NAME</span>
-                                <input type="text" name="lastname" class="f-form-control-2" required>
+                                <input type="text" name="lastname" class="f-form-control-2"     >
                             </div>
                             <div class="col-lg-12 d-flex flex-column mb-4">
                                 <span class="small-text mb-2 text-black-50 mx-2">COLLEGE ID</span>
