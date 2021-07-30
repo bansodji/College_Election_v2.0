@@ -1,3 +1,10 @@
+<?php
+    session_start();
+    if(!$_SESSION['fullname']){
+        header('location:index.php');
+    }
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -39,21 +46,87 @@
 
 <body>
 
+    <?php
 
+        include "dbcon.php";
+
+        //***********Fetching Austin Philip Vote Count****************//
+        $austin = " select * from `vote_result` where `candidates` = 'Austin Philip' ";
+        $query_austin = mysqli_query($con, $austin);
+
+        $fetch_austin = mysqli_fetch_assoc($query_austin);
+        $austin_votecount = $fetch_austin['votecount'];    //current vote count of Austin Philip fetched
+
+        //***********Fetching Rachel Weiz Vote Count****************//
+        $rachel = " select * from `vote_result` where `candidates` = 'Rachel Weiz' ";
+        $query_rachel = mysqli_query($con, $rachel);    
+
+        $fetch_rachel = mysqli_fetch_assoc($query_rachel);
+        $rachel_votecount = $fetch_rachel['votecount'];    //current vote count of Rachel Weiz fetched
+        
+
+        // ***********Fetching Robert Patinson Vote Count****************//
+        $robert = " select * from `vote_result` where `candidates` = 'Robert Patinson' ";
+        $query_robert = mysqli_query($con, $robert);    
+
+        $fetch_robert = mysqli_fetch_assoc($query_robert);
+        $robert_votecount = $fetch_robert['votecount'];    //current vote count of Robert Patinson fetched
+
+        
+        $collegeid = $_SESSION['collegeid'];
+
+        //*******************Austin Philip*****************//
+        if(isset($_POST['vote1'])){
+            $give_vote = " UPDATE `userdata` SET `vote` = '1' WHERE `college id` = '$collegeid' ";
+            $query = mysqli_query($con, $give_vote);
+
+            $new_vote_count = $austin_votecount + 1;
+
+            $vquery = mysqli_query($con , " UPDATE `vote_result` SET `votecount` = '$new_vote_count' WHERE `candidates` = 'Austin Philip' ");
+
+
+            header('location:home.php');
+        }
+
+        //*******************Rachel Weiz*****************//
+        if(isset($_POST['vote2'])){
+            $give_vote = " UPDATE `userdata` SET `vote` = '2' WHERE `college id` = '$collegeid' ";
+            $query = mysqli_query($con, $give_vote);
+
+            $new_vote_count = $rachel_votecount + 1;
+
+            $vquery = mysqli_query($con , " UPDATE `vote_result` SET `votecount` = '$new_vote_count' WHERE `candidates` = 'Rachel Weiz' ");
+
+            header('location:home.php');
+        }
+
+        //*******************Robert Patinson*****************//
+        if(isset($_POST['vote3'])){
+            $give_vote = " UPDATE `userdata` SET `vote` = '3' WHERE `college id` = '$collegeid' ";
+            $query = mysqli_query($con, $give_vote);
+
+            $new_vote_count = $robert_votecount + 1;
+
+            $vquery = mysqli_query($con , " UPDATE `vote_result` SET `votecount` = '$new_vote_count' WHERE `candidates` = 'Robert Patinson' ");
+
+            header('location:home.php');
+        }
+
+    ?>
 
     <section>
         <div class="candidates">
             <div class="container">
                 <div class="col-lg-6">
                     <div>
-                        <h5 class="fff">VOTE NOW</h5>
+                        <h5 class="fff" style="text-transform: uppercase;">VOTE NOW <?php echo $_SESSION['fullname'] ?></h5>
                         <h1 class="fw-bold fff my-4">Vote For Your College's President</h1>
                         <p class="fff">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
                             incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
                             exercitation ullamco laboris nisi ut aliquip</p>
                     </div>
                 </div>
-                <form action="" method="POST">
+                <form action="<?php $_SERVER['PHP_SELF']; ?>" method="POST">
                     <div class="row mt-5">
                         <div class="col-lg-4 mb-4">
                             <div>

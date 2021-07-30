@@ -1,5 +1,5 @@
 <?php
-    session_start();
+session_start();
 ?>
 
 <!doctype html>
@@ -16,11 +16,10 @@
     <!--Google Font-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Yesteryear&display=swap" rel="stylesheet">
 
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
 
     <!--icomoon-->
     <link rel="stylesheet" href="/font/icomoon/style.css">
@@ -29,8 +28,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     <!--Local-->
     <link rel="stylesheet" href="css/style.css">
@@ -46,27 +44,29 @@
 
         include "dbcon.php";
 
-        if(isset($_POST['submit'])){
+         if (isset($_POST['submit'])) {
             $collegeid = $_POST['collegeid'];
             $password = $_POST['password'];
 
             $check_clgid = " select * from `userdata` where `college id` = '$collegeid' ";
             $query = mysqli_query($con, $check_clgid);
 
-            if(mysqli_num_rows($query)){
+            if (mysqli_num_rows($query)) {
                 $db_fetch = mysqli_fetch_assoc($query);    //Fetch Query
                 $db_pass = $db_fetch['password'];       //Fetching password
 
                 $_SESSION['fullname'] = $db_fetch['fullname'];    //fetching Fullname
 
+                $_SESSION['collegeid'] = $collegeid;     //College ID
+
                 $verify_pass = password_verify($password, $db_pass);   //Verifying passoword
 
-                if($verify_pass){
+                if ($verify_pass) {
                     header('location:home.php');
-                }else{
+                } else {
                     echo "Password is incorrect";
                 }
-            }else{
+            } else {
                 echo "College ID not found";
             }
         }
@@ -76,7 +76,9 @@
 
 
     <div class="container mt-4 d-flex justify-content-between">
-        <div><h4 class="fw-bold">College Election</h4></div>
+        <div>
+            <h4 class="fw-bold">College Election</h4>
+        </div>
         <div>
             <span>Don't have an Account? <a href="signup.php" class="f-color-2 font-7"> Sign Up Here</a> </span>
         </div>
@@ -114,9 +116,7 @@
 
 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 
 </html>
