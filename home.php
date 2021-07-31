@@ -122,7 +122,7 @@
                         </h2>
                         <?php
                             if($_SESSION['collegeid'] == "admin"){
-                                echo ' <button class="f-btn-1">VOTE SUMMERY</button> ';
+                                echo ' <a href="vote_result.php"><button class="f-btn-1">VOTE SUMMERY</button></a> ';
                             }else{
                                 echo ' <a href="vote.php"><button class="f-btn-1">VOTE NOW</button></a> ';
                             }
