@@ -1,5 +1,47 @@
 <?php
 session_start();
+
+if($_SESSION['collegeid'] != "admin"){
+    header('location:home.php');
+}
+
+include "dbcon.php";
+
+//************Austin Pilip Vote Count*************//
+$austin_data = mysqli_query($con, " select * from `vote_result` where `candidates` = 'Austin Philip' ");
+$austin_vote_count = mysqli_fetch_assoc($austin_data)['votecount'];
+$_SESSION['austin_votecount'] = $austin_vote_count;
+
+
+//************Rachel Weiz Vote Count*************//
+$rachel_data = mysqli_query($con, " select * from `vote_result` where `candidates` = 'Rachel Weiz' ");
+$rachel_vote_count = mysqli_fetch_assoc($rachel_data)['votecount'];
+$_SESSION['rachel_votecount'] = $rachel_vote_count;
+
+
+
+//************Robert Patinson Vote Count*************//
+$robert_data = mysqli_query($con, " select * from `vote_result` where `candidates` = 'Robert Patinson' ");
+$robert_vote_count = mysqli_fetch_assoc($robert_data)['votecount'];
+$_SESSION['robert_votecount'] = $robert_vote_count;
+
+
+
+//******************Calculating Total Vote*****************//
+$_SESSION['total_vote'] = $_SESSION['austin_votecount'] + $_SESSION['rachel_votecount'] + $_SESSION['robert_votecount'];
+
+
+//*******************Calculating Individual Persentage*******************//
+$austin_percent = ($_SESSION['austin_votecount'] * 100) / $_SESSION['total_vote']; //Austin %
+// echo $_SESSION['austin%'] . " ";
+
+$rachel_percent = ($_SESSION['rachel_votecount'] * 100) / $_SESSION['total_vote']; //Rachel % 
+// echo $_SESSION['rachel%'] . " ";   
+
+$robert_percent = ($_SESSION['robert_votecount'] * 100) / $_SESSION['total_vote']; //Robert %   
+// echo $_SESSION['robert%'] . " "; 
+
+
 ?>
 
 <!doctype html>
@@ -13,54 +55,9 @@ session_start();
     <?php include "links/links.php" ?>
 
     <title>College Election</title>
-
-    <style>
-
-    </style>
 </head>
 
 <body>
-
-    <?php
-
-    include "dbcon.php";
-
-    //************Austin Pilip Vote Count*************//
-    $austin_data = mysqli_query($con, " select * from `vote_result` where `candidates` = 'Austin Philip' ");
-    $austin_vote_count = mysqli_fetch_assoc($austin_data)['votecount'];
-    $_SESSION['austin_votecount'] = $austin_vote_count;
-
-
-    //************Rachel Weiz Vote Count*************//
-    $rachel_data = mysqli_query($con, " select * from `vote_result` where `candidates` = 'Rachel Weiz' ");
-    $rachel_vote_count = mysqli_fetch_assoc($rachel_data)['votecount'];
-    $_SESSION['rachel_votecount'] = $rachel_vote_count;
-
-
-
-    //************Robert Patinson Vote Count*************//
-    $robert_data = mysqli_query($con, " select * from `vote_result` where `candidates` = 'Robert Patinson' ");
-    $robert_vote_count = mysqli_fetch_assoc($robert_data)['votecount'];
-    $_SESSION['robert_votecount'] = $robert_vote_count;
-
-
-
-    //******************Calculating Total Vote*****************//
-    $_SESSION['total_vote'] = $_SESSION['austin_votecount'] + $_SESSION['rachel_votecount'] + $_SESSION['robert_votecount'];
-
-
-    //*******************Calculating Individual Persentage*******************//
-    $_SESSION['austin%'] = ($_SESSION['austin_votecount'] * 100) / $_SESSION['total_vote']; //Austin %
-    // echo $_SESSION['austin%'] . " ";
-
-    $_SESSION['rachel%'] = ($_SESSION['rachel_votecount'] * 100) / $_SESSION['total_vote']; //Rachel % 
-    // echo $_SESSION['rachel%'] . " ";   
-
-    $_SESSION['robert%'] = ($_SESSION['robert_votecount'] * 100) / $_SESSION['total_vote']; //Robert %   
-    // echo $_SESSION['robert%'] . " "; 
-
-    ?>
-
 
     <section>
         <div class="candidates" style="height: 100vh;">
@@ -84,7 +81,7 @@ session_start();
                         <h3 class="fff"> <?php echo $_SESSION['austin_votecount']; ?> </h3>
                     </div>
                     <div class="progress">
-                        <div class="progress-bar bg-danger" role="progressbar" style="width: 27%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                        <div class="progress-bar bg-danger" style="width:27%" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                 </div>
 
