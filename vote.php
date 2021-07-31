@@ -3,6 +3,9 @@
     if(!$_SESSION['fullname']){
         header('location:index.php');
     }
+    if($_SESSION['vote_status'] != 0){
+        header('location:home.php');
+    }
 ?>
 
 <!doctype html>
@@ -82,8 +85,7 @@
 
             $new_vote_count = $austin_votecount + 1;
 
-            $vquery = mysqli_query($con , " UPDATE `vote_result` SET `votecount` = '$new_vote_count' WHERE `candidates` = 'Austin Philip' ");
-
+            $vquery = mysqli_query($con , " UPDATE `vote_result` SET `votecount` = '$new_vote_count' WHERE `candidates` = 'Austin Philip' ");   //update vote count of Austin Philip
 
             header('location:home.php');
         }
@@ -95,7 +97,7 @@
 
             $new_vote_count = $rachel_votecount + 1;
 
-            $vquery = mysqli_query($con , " UPDATE `vote_result` SET `votecount` = '$new_vote_count' WHERE `candidates` = 'Rachel Weiz' ");
+            $vquery = mysqli_query($con , " UPDATE `vote_result` SET `votecount` = '$new_vote_count' WHERE `candidates` = 'Rachel Weiz' "); //update vote count of Rachel Weiz
 
             header('location:home.php');
         }
@@ -107,10 +109,17 @@
 
             $new_vote_count = $robert_votecount + 1;
 
-            $vquery = mysqli_query($con , " UPDATE `vote_result` SET `votecount` = '$new_vote_count' WHERE `candidates` = 'Robert Patinson' ");
+            $vquery = mysqli_query($con , " UPDATE `vote_result` SET `votecount` = '$new_vote_count' WHERE `candidates` = 'Robert Patinson' "); //update vote count of Robert Patinson
 
             header('location:home.php');
         }
+
+        $vote_status = mysqli_query($con, " select * from `userdata` where `college id` = '$collegeid'  ");
+
+        $user_vote_status = mysqli_fetch_assoc($vote_status)['vote'];
+
+        $_SESSION['vote_status'] = $user_vote_status;   //user vote status modified
+
 
     ?>
 

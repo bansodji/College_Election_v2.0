@@ -137,10 +137,23 @@
                     <div class="col-lg-8"></div>
                     <div class="col-lg-3 text-end" data-aos="fade-left">
                         <h1 class=" fff f-text-family-head">Welcome <?php echo $_SESSION['fullname'] ?></h1>
-                        <p class="text-sm fff">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo commodi
-                            aliquid quis neque
-                            laborum! Natus, accusamus dolor sunt minimas</p>
-                        <a href="vote.php"><button class="f-btn-1">VOTE NOW</button></a>
+                        <h2 class="fff">
+                            <?php
+                                    if($_SESSION['vote_status'] != 0){
+                                        echo "YOUR VOTE SUBMITTED";
+                                    }else{
+                                        echo "SUBMIT YOUR VOTE HERE";
+                                    }
+                            ?>
+                        </h2>
+                        <?php
+                            if($_SESSION['collegeid'] == "admin"){
+                                echo ' <button class="f-btn-1">VOTE SUMMERY</button> ';
+                            }else{
+                                echo ' <a href="vote.php"><button class="f-btn-1">VOTE NOW</button></a> ';
+                            }
+                        ?>
+                        
                     </div>
                 </div>
             </div>

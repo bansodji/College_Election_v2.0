@@ -59,6 +59,8 @@ session_start();
 
                 $_SESSION['collegeid'] = $collegeid;     //College ID
 
+                $_SESSION['vote_status'] = $db_fetch['vote'];   //User vote status fetched 
+
                 $verify_pass = password_verify($password, $db_pass);   //Verifying passoword
 
                 if ($verify_pass) {
